@@ -1,0 +1,796 @@
+---
+title: "Ejercicios ggplot2"
+author: Paula Ávila
+date: 2026-03-26
+
+execute:
+  echo: true
+  warning: false
+  message: false
+
+format:
+  html:
+    theme:
+      light: flatly
+      dark: darkly
+    toc: true
+    number-sections: true
+    code-fold: true
+    code-tools: true
+    code-copy: true
+
+lang: es
+---
+
+# Introducción
+
+Este documento presenta un análisis exploratorio de datos utilizando ggplot2. El objetivo es visualizar las relaciones entre variables e interpretar los patrones observados en los datos.
+
+```{r}
+library(ggplot2)
+library(tidyverse)
+library(readr)
+```
+
+``` {r}
+students <- data.frame(
+
+id = 1:20,
+
+hours_study = c(2,3,4,5,6,3,4,7,8,5,6,7,3,2,9,10,4,6,8,5),
+
+score = c(50,55,65,70,75,60,66,80,85,72,74,78,58,52,90,95,67,76,88,73),
+
+gender = rep(c("Male","Female"),10),
+
+major = rep(c("Engineering","Business","Arts","Science"),5)
+
+)
+```
+
+# Descripción del conjunto de datos
+
+El conjunto de datos contiene información sobre:
+
+-   Horas de estudio
+-   Calificación obtenida
+-   Género del estudiante
+-   Carrera
+
+El objetivo es analizar si existe una relación entre las horas de estudio y el rendimiento académico.
+
+# Ejercicio 1 – Diagrama de dispersión
+
+## Enunciado
+
+Crear un diagrama de dispersión entre las horas de estudio y la calificación.
+
+```{r}
+p <- ggplot(students, aes(hours_study, score)) +
+geom_point()
+
+print(p)
+```
+
+## EJERCICIO 2 – Cambiar color de los puntos
+Enunciado
+
+Cambiar el color de todos los puntos a azul.
+
+```{r}
+p <- ggplot(students, aes(hours_study, score)) +
+geom_point(color="blue")
+
+print(p)
+```
+## Explicación
+
+Este gráfico presenta la misma relación entre horas de estudio y calificación, pero ahora todos los puntos tienen un color azul uniforme.
+
+# Mejora de la gráfica
+Código mejorado
+
+```{r}
+p <- ggplot(students, aes(hours_study, score)) +
+
+geom_point(color="blue", size=3)+
+
+labs(
+
+title="Horas de estudio vs calificaciones",
+
+x="Horas de estudio",
+
+y="Calificación"
+
+)+
+
+theme_minimal()
+
+print(p)
+```
+## EJERCICIO 3 – Color según género
+Enunciado
+
+Asignar color según el género.
+
+```{r}
+p <- ggplot(students, aes(hours_study, score, color=gender)) +
+
+geom_point(size=3)
+
+print(p)
+```
+## Explicación
+
+El gráfico diferencia los estudiantes según su género mediante distintos colores.
+
+Interpretación
+
+Se observa que tanto hombres como mujeres siguen una tendencia similar entre horas de estudio y calificación.
+
+```{r}
+p <- ggplot(students, aes(hours_study, score, color=gender)) +
+
+geom_point(size=3)+
+
+geom_smooth(method="lm")+
+
+labs(
+
+title="Relación entre horas de estudio y calificación por género",
+
+x="Horas de estudio",
+
+y="Calificación",
+
+color="Género"
+
+)+
+
+theme_minimal()
+
+print(p)
+```
+## EJERCICIO 4 – Aumentar tamaño de puntos
+Enunciado
+
+Incrementar el tamaño de los puntos.
+
+```{r}
+p <- ggplot(students, aes(hours_study, score)) +
+
+geom_point(size=4)
+
+print(p)
+```
+Explicación
+
+El aumento del tamaño de los puntos facilita la visualización de los datos.
+
+## Interpretación
+
+Una mejor visualización permite identificar más fácilmente la distribución de los estudiantes.
+
+## EJERCICIO 5 – Agregar título
+Enunciado
+
+Agregar título al gráfico.
+
+```{r}
+p <- ggplot(students, aes(hours_study, score)) +
+
+geom_point(size=3)+
+
+ggtitle("Relación entre horas de estudio y rendimiento académico")
+
+print(p)
+```
+## Explicación
+
+El título permite identificar rápidamente el propósito del gráfico.
+
+## Interpretación
+
+Los títulos son fundamentales para la comunicación efectiva de los resultados.
+
+## EJERCICIO 6 – Agregar etiquetas a los ejes
+Enunciado
+
+Agregar etiquetas al eje X y al eje Y.
+
+```{r}
+p <- ggplot(students, aes(hours_study, score)) +
+
+geom_point(size=3)+
+
+labs(
+
+x="Horas de estudio",
+
+y="Calificación"
+
+)
+
+print(p)
+```
+
+## Explicación
+
+Se agregan nombres descriptivos a los ejes para facilitar la comprensión del gráfico.
+
+## Interpretación
+
+Las etiquetas permiten que cualquier persona entienda rápidamente qué representan las variables.
+
+## Mejora gráfica
+```{r}
+p <- ggplot(students, aes(hours_study, score)) +
+
+geom_point(color="darkblue", size=3)+
+
+labs(
+
+title="Relación entre horas de estudio y calificación",
+
+x="Horas de estudio",
+
+y="Calificación"
+
+)+
+
+theme_minimal()
+
+print(p)
+```
+```{r}
+p <- ggplot(students, aes(hours_study, score)) +
+
+geom_point(color="darkblue", size=3)+
+
+labs(
+
+title="Relación entre horas de estudio y calificación",
+
+x="Horas de estudio",
+
+y="Calificación"
+
+)+
+
+theme_minimal()
+
+print(p)
+```
+
+## EJERCICIO 7 – Usar theme_minimal()
+Enunciado
+
+Aplicar el tema minimalista.
+
+```{r}
+p <- ggplot(students, aes(hours_study, score)) +
+
+geom_point(size=3)+
+
+theme_minimal()
+
+print(p)
+```
+
+## Explicación
+
+El tema minimalista elimina elementos visuales innecesarios.
+
+## Interpretación
+
+Un diseño limpio permite concentrarse mejor en la información importante.
+
+## EJERCICIO 8 – Centrar el título
+Enunciado
+
+Centrar el título del gráfico.
+
+```{r}
+p <- ggplot(students, aes(hours_study, score)) +
+
+geom_point(size=3)+
+
+labs(title="Relación entre horas de estudio y calificación")+
+
+theme(
+
+plot.title = element_text(hjust=0.5)
+
+)
+
+print(p)
+```
+## Explicación
+
+Se ajusta la posición horizontal del título usando hjust.
+
+## Interpretación
+
+Un título centrado mejora la presentación profesional del gráfico.
+
+## EJERCICIO 9 – Cambiar tamaño del texto de los ejes
+Enunciado
+
+Modificar el tamaño del texto de los ejes
+
+```{r}
+p <- ggplot(students, aes(hours_study, score)) +
+
+geom_point(size=3)+
+
+theme(
+
+axis.text = element_text(size=12)
+
+)
+
+print(p)
+```
+
+## Explicación
+
+Se incrementa el tamaño del texto de los ejes para mejorar la legibilidad.
+
+## Interpretación
+
+Un texto más grande facilita la lectura del gráfico.
+
+## EJERCICIO 10 – Eliminar la leyenda
+Enunciado
+
+Eliminar la leyenda del gráfico.
+
+```{r}
+p <- ggplot(students, aes(hours_study, score, color=gender)) +
+
+geom_point(size=3)+
+
+theme(
+
+legend.position="none"
+
+)
+
+print(p)
+```
+
+## Explicación
+
+Se elimina la leyenda para simplificar el gráfico.
+
+## Interpretación
+
+Esto es útil cuando la leyenda no aporta información relevante.
+
+## EJERCICIO 11 – Agregar línea de regresión
+Enunciado
+
+Agregar una línea de regresión usando geom_smooth().
+
+```{r}
+p <- ggplot(students, aes(hours_study, score)) +
+
+geom_point(size=3)+
+
+geom_smooth(method="lm")
+
+print(p)
+```
+
+## Explicación
+
+Se agrega una línea de regresión lineal que muestra la tendencia general entre las variables.
+
+## Interpretación
+
+La línea indica que existe una relación positiva entre las horas de estudio y la calificación.
+
+## EJERCICIO 12 – Cambiar color de la regresión
+Enunciado
+
+Modificar el color de la línea de regresión.
+
+```{r}
+p <- ggplot(students, aes(hours_study, score)) +
+
+geom_point(size=3)+
+
+geom_smooth(method="lm", color="red")
+
+print(p)
+```
+## Explicación
+
+Se cambia el color de la línea para diferenciarla mejor de los puntos.
+
+## Interpretación
+
+La tendencia sigue siendo la misma, solo mejora la visualización.
+
+## EJERCICIO 13 – Boxplot por género
+Enunciado
+
+Crear un boxplot de score por gender.
+
+```{r}
+p <- ggplot(students, aes(gender, score)) +
+
+geom_boxplot()
+
+print(p)
+```
+
+## Explicación
+
+El boxplot muestra la distribución de las calificaciones por género.
+
+## Interpretación
+
+Permite comparar:
+
+✔ mediana
+✔ dispersión
+✔ valores extremos
+
+## Mejora gráfica
+
+```{r}
+p <- ggplot(students, aes(gender, score, fill=gender)) +
+
+geom_boxplot()+
+
+labs(
+
+title="Distribución de calificaciones por género",
+
+x="Género",
+
+y="Calificación"
+
+)+
+
+theme_minimal()
+
+print(p)
+```
+## EJERCICIO 14 – Histograma de score
+Enunciado
+
+Crear un histograma de las calificaciones.
+
+```{r}
+p <- ggplot(students, aes(score)) +
+
+geom_histogram()
+
+print(p)
+```
+## Explicación
+
+El histograma muestra cuántos estudiantes hay en cada rango de calificaciones.
+
+## Interpretación
+
+Permite observar la distribución general del rendimiento académico.
+
+##EJERCICIO 15 – Cambiar número de bins
+Enunciado
+
+Modificar el número de intervalos del histograma.
+
+```{r}
+p <- ggplot(students, aes(score)) +
+
+geom_histogram(bins=10)
+
+print(p)
+```
+
+## Explicación
+
+Los bins determinan cuántos intervalos tendrá el histograma.
+
+## Interpretación
+
+Más bins permiten mayor detalle en la distribución.
+
+## EJERCICIO 16 – Facet por major
+Enunciado
+
+Crear scatter plots separados por carrera.
+
+```{r}
+p <- ggplot(students, aes(hours_study, score)) +
+
+geom_point()+
+
+facet_wrap(~major)
+
+print(p)
+```
+## Explicación
+
+Se crean gráficos separados para cada carrera.
+
+## Interpretación
+
+Permite comparar patrones entre diferentes programas académicos.
+
+## EJERCICIO 17 – Uso de facet_wrap()
+```{r}
+p <- ggplot(students, aes(hours_study, score)) +
+
+geom_point(color="blue")+
+
+facet_wrap(~major)+
+
+theme_minimal()
+
+print(p)
+```
+## EJERCICIO 18 – facet_grid()
+Enunciado
+
+Usar facet_grid con gender y major.
+
+```{r}
+p <- ggplot(students, aes(hours_study, score)) +
+
+geom_point()+
+
+facet_grid(gender~major)
+
+print(p)
+```
+## Explicación
+
+Divide los gráficos por género y carrera.
+
+## Interpretación
+
+Permite un análisis comparativo más detallado.
+
+## EJERCICIO 19 – Forma según major
+Enunciado
+
+Cambiar la forma de los puntos según la carrera.
+
+```{r}
+p <- ggplot(students, aes(hours_study, score, shape=major)) +
+
+geom_point(size=3)
+
+print(p)
+```
+## Explicación
+
+Cada carrera se representa con una forma diferente.
+
+## Interpretación
+
+Facilita distinguir categorías en el gráfico.
+
+
+## EJERCICIO 20 – Gráfico multivariable (importante)
+Enunciado
+
+Crear un scatter plot con:
+
+color = gender
+size = score
+regression line
+minimal theme
+
+```{r}
+p <- ggplot(students,
+
+aes(
+
+hours_study,
+
+score,
+
+color=gender,
+
+size=score
+
+))+
+
+geom_point()+
+
+geom_smooth(method="lm")+
+
+theme_minimal()
+
+print(p)
+```
+## Explicación
+
+Este gráfico combina múltiples variables:
+
+✔ color → género
+✔ tamaño → calificación
+✔ línea → tendencia
+
+## Interpretación
+
+Este tipo de visualización permite analizar varias variables simultáneamente.
+
+## Ejercicio 2 – Visualización de datos empresariales
+
+Este conjunto de datos representa el rendimiento de las ventas en las distintas regiones.
+
+```{r}
+sales <- data.frame(
+
+month = rep(month.abb[1:12],4),
+
+region = rep(c("North","South","East","West"), each=12),
+
+sales = c(
+
+120,130,125,140,150,160,170,165,155,145,135,125,
+
+100,110,105,120,130,135,140,138,132,125,118,110,
+
+90,95,100,110,115,120,125,123,118,112,105,98,
+
+80,85,88,95,100,105,110,108,102,97,90,85
+
+),
+
+marketing_spend = c(
+
+20,22,21,23,25,26,28,27,26,24,23,22,
+
+18,19,18,20,22,23,24,23,22,21,20,19,
+
+15,16,17,18,19,20,21,20,19,18,17,16,
+
+12,13,14,15,16,17,18,17,16,15,14,13
+
+),
+
+employees = rep(c(50,45,40,35), each=12)
+
+)
+```
+## EJERCICIO 21 – Marketing disperso vs ventas
+Declaración
+
+Crear un diagrama de dispersión de gastos de marketing frente a ventas.
+
+Código
+```{r} 
+p <- ggplot(sales, aes(marketing_spend, sales)) + 
+
+geom_point() 
+
+print(p) 
+```
+#Explicación
+
+El gráfico muestra la relación entre inversión en marketing y ventas.
+
+#Interpretación
+
+Se observa que mayores inversiones tienden a generar mayores ventas.
+
+## EJERCICIO 22 – Cambiar color
+Declaración
+
+Cambia el color del punto a verde oscuro.
+
+Código
+```{r} 
+p <- ggplot(sales, aes(marketing_spend, sales)) + 
+
+geom_point(color="darkgreen") 
+
+print(p) 
+```
+## Explicación
+
+Explicación
+
+El gráfico presenta la misma información, pero ahora los puntos tienen un color uniforme.
+
+## Interpretación
+
+El cambio mejora la presentación visual pero no afecta el análisis.
+
+
+## EJERCICIO 23 – Color por región
+Código
+```{r} 
+p <- ggplot(sales, aes(marketing_spend, sales, color=region)) + 
+
+geom_point() 
+
+print(p) 
+```
+## Explicación
+
+Los puntos se diferencian por región mediante colores.
+
+## Interpretación
+
+Permite observar qué regiones generan mayores ventas con menor inversión.
+
+## Ejercicio 24
+
+```{r}
+p <- ggplot(sales, aes(marketing_spend, sales)) +
+
+geom_point(size=3)
+
+print(p)
+```
+
+## Ejercicio 25
+
+```{r}
+p <- ggplot(sales, aes(marketing_spend, sales)) +
+
+geom_point(size=3)+
+
+labs(title="Sales vs Marketing Investment")
+
+print(p)
+```
+
+## Ejercicio 26
+
+```{r}
+p <- ggplot(sales, aes(marketing_spend, sales)) +
+
+geom_point()+
+
+labs(
+
+x="Marketing Investment",
+
+y="Sales"
+
+)
+
+print(p)
+```
+
+## Ejercicio 27
+
+```{r}
+p <- ggplot(sales, aes(marketing_spend, sales)) +
+
+geom_point()+
+
+theme_minimal()
+
+print(p)
+```
+
+## Ejercicio 27
+```{r}
+p <- ggplot(sales, aes(marketing_spend, sales)) +
+
+geom_point()+
+
+labs(title="Sales vs Marketing")+
+
+theme(
+
+plot.title = element_text(hjust=0.5)
+
+)
+
+print(p)
+```
+
+
+

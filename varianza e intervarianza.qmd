@@ -1,0 +1,164 @@
+---
+title: "Varianza e Intervarianza"
+author: Paula Ávila
+date: 2026-03-26
+
+format:
+  html:
+    theme:
+      light: flatly
+      dark: darkly
+    toc: true
+    number-sections: true
+    code-fold: true
+    code-tools: true
+    code-overflow: wrap
+    code-copy: true
+    embed-resources: true
+    reference-location: margin
+
+lang: es
+---
+
+# Introducción
+
+Este documento presenta el cálculo de la **intravarianza** y la **intervarianza** utilizando el lenguaje R. El objetivo es analizar la variabilidad de las notas entre diferentes jornadas académicas (mañana, tarde y noche).
+
+La varianza permite medir qué tan dispersos están los datos respecto a su promedio.
+
+# Datos
+
+Se registran las siguientes notas por jornada:
+
+```{r}
+# Notas jornada mañana
+mañana <- c(4.0,3.5,3.8,3.6,4.1)
+
+# Notas jornada tarde
+tarde <- c(3.8,3.5,3.0,2.9)
+
+# Notas jornada noche
+noche <- c(3.1,2.5,2.6)
+```
+
+# Explicación del paso
+
+En este paso se crean tres vectores que representan las notas de cada jornada. Cada vector contiene las calificaciones obtenidas por los estudiantes.
+
+# Cálculo de medias por grupo
+
+Se calcula el promedio de cada jornada para conocer el rendimiento promedio de cada grupo.
+
+```{r}
+# Promedio jornada mañana
+media_mañana <- mean(mañana)
+
+# Promedio jornada tarde
+media_tarde <- mean(tarde)
+
+# Promedio jornada noche
+media_noche <- mean(noche)
+
+media_mañana
+media_tarde
+media_noche
+```
+
+# Explicación del paso
+
+La función **mean()** calcula el promedio de los datos. Este valor representa el rendimiento promedio de los estudiantes en cada jornada.
+
+# Interpretación
+
+Se puede observar cuál jornada presenta mejores resultados académicos en promedio.
+
+# Cálculo de varianzas por grupo
+
+Se calcula la varianza de cada grupo para medir la dispersión de las notas.
+
+```{r}
+# Varianza jornada mañana
+var_mañana <- var(mañana)
+
+# Varianza jornada tarde
+var_tarde <- var(tarde)
+
+# Varianza jornada noche
+var_noche <- var(noche)
+
+var_mañana
+var_tarde
+var_noche
+```
+
+# Explicación del paso
+
+La función **var()** calcula la varianza. Este valor indica qué tan dispersas están las notas respecto al promedio.
+
+# Interpretación
+
+Una varianza mayor indica mayor dispersión de las calificaciones.  
+Una varianza menor indica mayor uniformidad en las notas.
+
+# Intravarianza
+
+La intravarianza corresponde al promedio de las varianzas de los grupos.
+
+```{r}
+# Vector con las varianzas
+varianzas <- c(var_mañana,var_tarde,var_noche)
+
+# Cálculo intravarianza
+intravarianza <- mean(varianzas)
+
+intravarianza
+```
+
+# Explicación del paso
+
+Primero se agrupan las varianzas en un vector y luego se calcula el promedio. Este valor representa la variabilidad promedio dentro de los grupos.
+
+# Interpretación
+
+La intravarianza muestra qué tan diferentes son las notas dentro de cada jornada.
+
+# Intervarianza
+
+La intervarianza corresponde a la varianza de las medias de los grupos.
+
+```{r}
+# Vector con las medias
+medias <- c(media_mañana,media_tarde,media_noche)
+
+# Cálculo intervarianza
+intervarianza <- var(medias)
+
+intervarianza
+```
+
+# Explicación del paso
+
+Primero se agrupan las medias de los grupos y luego se calcula su varianza. Este valor indica qué tan diferentes son los promedios entre jornadas.
+
+# Interpretación
+
+La intervarianza mide la diferencia entre los promedios de las jornadas.
+
+# Comparación final
+
+## Interpretación general
+
+La **intravarianza** mide la variabilidad dentro de los grupos.  
+La **intervarianza** mide la diferencia entre los promedios de los grupos.
+
+Si la intervarianza es mayor:
+Los grupos son diferentes entre sí.
+
+Si la intravarianza es mayor:
+Los grupos son similares entre sí.
+
+# Conclusión
+
+Este análisis permite concluir que la varianza es una herramienta fundamental para analizar la dispersión de datos. La intravarianza permite analizar la consistencia dentro de los grupos, mientras la intervarianza permite comparar los grupos entre sí.
+
+
