@@ -28,13 +28,13 @@
     },
     {
       "cell_type": "code",
-      "execution_count": 4,
+      "execution_count": 43,
       "metadata": {
         "id": "N3995M1tNegS",
         "colab": {
           "base_uri": "https://localhost:8080/"
         },
-        "outputId": "78799242-d149-46f1-c763-6651804f65b0"
+        "outputId": "8718890e-d146-4bf8-bd9e-288e1c414e56"
       },
       "outputs": [
         {
@@ -131,9 +131,9 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "HlFGKl5ESWmY",
-        "outputId": "b804e8c2-8678-4452-a276-eb8ec60213d3"
+        "outputId": "9617d495-cc6c-4240-b975-a1132c431fdf"
       },
-      "execution_count": 5,
+      "execution_count": 44,
       "outputs": [
         {
           "output_type": "stream",
@@ -182,16 +182,16 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "COWz53ZxS-_i",
-        "outputId": "fdd11f67-866c-475f-9932-775d5751f4b7"
+        "outputId": "b1eef6d4-137e-4801-ef95-01f51491f0cb"
       },
-      "execution_count": 6,
+      "execution_count": 45,
       "outputs": [
         {
           "output_type": "stream",
           "name": "stdout",
           "text": [
-            "Skewness: -0.03506659083435686\n",
-            "Kurtosis: 0.014430924202268436\n"
+            "Skewness: 0.009584266170719283\n",
+            "Kurtosis: 0.24330987942796067\n"
           ]
         }
       ]
@@ -243,9 +243,9 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "yIwqqFpQTdXn",
-        "outputId": "e56ef5a0-2f70-4300-dd8c-ffdb55d09ddf"
+        "outputId": "d671d04a-5142-4325-842d-638371b4b8ed"
       },
-      "execution_count": 7,
+      "execution_count": 46,
       "outputs": [
         {
           "output_type": "stream",
@@ -293,9 +293,9 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "mE729sWCTvs7",
-        "outputId": "1d8bf1bb-b7c4-447a-a4e3-3050658e6cf1"
+        "outputId": "1b0c0453-edef-4026-8d68-ddf065451366"
       },
-      "execution_count": 8,
+      "execution_count": 47,
       "outputs": [
         {
           "output_type": "stream",
@@ -351,9 +351,9 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "nVFHAYQXUB8u",
-        "outputId": "726ce7a3-0565-414b-865a-012d07f58385"
+        "outputId": "65b87f3a-644c-4bac-d5c1-767c1909b431"
       },
-      "execution_count": 9,
+      "execution_count": 48,
       "outputs": [
         {
           "output_type": "stream",
@@ -405,9 +405,9 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "_Pb5ToSYUUSk",
-        "outputId": "26afb0eb-90b0-4cec-b8e8-69764f7af32d"
+        "outputId": "0ac60b87-cc00-49b0-dcab-a5e887759ea8"
       },
-      "execution_count": 10,
+      "execution_count": 49,
       "outputs": [
         {
           "output_type": "stream",
@@ -461,9 +461,9 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "B1tWCHoPU0p8",
-        "outputId": "ac6b68ab-f29a-4ccb-80b5-7f1b6890d7e8"
+        "outputId": "f743ab4d-2a63-4611-b5ef-b211bf951fdc"
       },
-      "execution_count": 11,
+      "execution_count": 50,
       "outputs": [
         {
           "output_type": "stream",
@@ -520,18 +520,18 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "VC0i2rrCVdVS",
-        "outputId": "511ba52d-463a-46ce-db2f-ce19372ba0c2"
+        "outputId": "57f52969-a1a6-4083-b0f5-40c86b11396e"
       },
-      "execution_count": 12,
+      "execution_count": 51,
       "outputs": [
         {
           "output_type": "stream",
           "name": "stdout",
           "text": [
             "Momento 1: 0.0\n",
-            "Momento 2: 232.00020167558517\n",
-            "Momento 3: -17.136591991648018\n",
-            "Momento 4: 168728.70487714137\n"
+            "Momento 2: 218.80139449326506\n",
+            "Momento 3: 449.20897854061866\n",
+            "Momento 4: 128434.75194846385\n"
           ]
         }
       ]
@@ -582,9 +582,9 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "FuuPyFpVXDEE",
-        "outputId": "51f20c97-8598-432a-f672-d90ac7d14b7c"
+        "outputId": "583040e3-ec3c-4149-a371-190cc462e453"
       },
-      "execution_count": 13,
+      "execution_count": 52,
       "outputs": [
         {
           "output_type": "stream",
@@ -647,10 +647,25 @@
         "print(\"STD con outliers:\", std_outliers)"
       ],
       "metadata": {
-        "id": "Nrg0c6lIXnoT"
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Nrg0c6lIXnoT",
+        "outputId": "7495ef3e-540d-4415-a749-88d8a08b08f6"
       },
-      "execution_count": null,
-      "outputs": []
+      "execution_count": 53,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "MAD normal: 5.274362365134426\n",
+            "MAD con outliers: 5.636348726488642\n",
+            "STD normal: 9.800030403283964\n",
+            "STD con outliers: 35.87338638368932\n"
+          ]
+        }
+      ]
     },
     {
       "cell_type": "markdown",
@@ -687,9 +702,9 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "R6sBkcEIYI3c",
-        "outputId": "b82d4673-a2c1-4c6f-fc9e-a37207678759"
+        "outputId": "734b5fd7-2ca3-4623-bca6-9fe94fae16cd"
       },
-      "execution_count": 14,
+      "execution_count": 54,
       "outputs": [
         {
           "output_type": "stream",
@@ -744,9 +759,9 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "46uWFk9xYYWu",
-        "outputId": "233241e6-ca99-414d-b824-d651093c5b00"
+        "outputId": "7648f7de-5552-4f5a-be49-d4ad46cf1cf1"
       },
-      "execution_count": 15,
+      "execution_count": 55,
       "outputs": [
         {
           "output_type": "stream",
@@ -795,18 +810,18 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "I0Gth8I2YoA1",
-        "outputId": "bc8f7f01-8742-4400-a149-eec5b80ec494"
+        "outputId": "8aca5cdf-3711-4085-e208-aec032d4b4e3"
       },
-      "execution_count": 16,
+      "execution_count": 56,
       "outputs": [
         {
           "output_type": "stream",
           "name": "stdout",
           "text": [
             "Momento 1: 0.0\n",
-            "Momento 2: 226.92883217382192\n",
-            "Momento 3: -1088.5101885714907\n",
-            "Momento 4: 171579.42773393312\n"
+            "Momento 2: 238.09887827905897\n",
+            "Momento 3: 371.9489593255513\n",
+            "Momento 4: 161684.2802286933\n"
           ]
         }
       ]
@@ -833,9 +848,9 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "QFAHALjpZHEj",
-        "outputId": "ea11fc64-e71a-435a-c8e8-69b9872e85b7"
+        "outputId": "04c97c34-d5f5-46a2-d99b-4868b374ec4e"
       },
-      "execution_count": 17,
+      "execution_count": 57,
       "outputs": [
         {
           "output_type": "stream",
@@ -895,18 +910,18 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "S0JKT5fjZbJi",
-        "outputId": "910ea5bf-4ed4-45a2-c75b-c60ada86d192"
+        "outputId": "d497fa8d-da8f-4f47-9f2a-1ab33d7a0390"
       },
-      "execution_count": 18,
+      "execution_count": 58,
       "outputs": [
         {
           "output_type": "stream",
           "name": "stdout",
           "text": [
-            "MAD normal: 6.989803751324775\n",
-            "MAD outliers: 7.621219182495388\n",
-            "STD normal: 9.870183771717691\n",
-            "STD outliers: 35.40581406124203\n"
+            "MAD normal: 7.339606203835636\n",
+            "MAD outliers: 7.613007887274897\n",
+            "STD normal: 11.059359172025156\n",
+            "STD outliers: 35.999810603518746\n"
           ]
         }
       ]
@@ -956,9 +971,9 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "jnyXOUv-ZteH",
-        "outputId": "343c502a-3dbf-4393-e08c-85373fb95a6b"
+        "outputId": "51ed89b3-6b1f-4a94-dcb2-2b6e4ec0cf31"
       },
-      "execution_count": 19,
+      "execution_count": 59,
       "outputs": [
         {
           "output_type": "stream",
@@ -1024,9 +1039,9 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "4_ogkHhQaPFi",
-        "outputId": "20627596-cbb5-4059-a9f1-232b9a8c0c82"
+        "outputId": "79197e54-442a-4763-f422-52abf4b03603"
       },
-      "execution_count": 20,
+      "execution_count": 60,
       "outputs": [
         {
           "output_type": "stream",
@@ -1085,9 +1100,9 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "rM75nOoFaiRw",
-        "outputId": "2ed970f8-fb5d-4362-da32-d8865dcdf448"
+        "outputId": "3549a221-9679-4293-efeb-ffde3a2ad633"
       },
-      "execution_count": 21,
+      "execution_count": 61,
       "outputs": [
         {
           "output_type": "stream",
@@ -1176,28 +1191,28 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "qMGxvdsaa6Lh",
-        "outputId": "261fc36c-ee96-430e-d9fe-8e7389c4e0d4"
+        "outputId": "233c90d4-6459-409b-ee9e-9171f0af4148"
       },
-      "execution_count": 22,
+      "execution_count": 62,
       "outputs": [
         {
           "output_type": "stream",
           "name": "stdout",
           "text": [
-            "Media: 47.45\n",
-            "Mediana: 47.0\n",
-            "Moda: 45 Frecuencia: 6\n",
-            "Varianza: 38.8475\n",
-            "Desviación estándar: 6.232776267442944\n",
-            "Skewness: 0.1561768361192502\n",
-            "Kurtosis: -0.3550672616994812\n",
-            "Q1: 42.75\n",
-            "Q3: 52.0\n",
-            "IQR: 9.25\n",
-            "Coeficiente de variación: 0.1313546104835183\n",
-            "Z-scores (10 primeros): [-0.39837672 -2.03875143  0.30464102  0.30464102  1.241998    0.07030177\n",
-            "  0.77331951 -1.3357337  -0.16403747  1.241998  ]\n",
-            "Trimmed mean: 47.31481481481482\n"
+            "Media: 49.43333333333333\n",
+            "Mediana: 51.0\n",
+            "Moda: 51 Frecuencia: 7\n",
+            "Varianza: 41.51222222222222\n",
+            "Desviación estándar: 6.442997921947687\n",
+            "Skewness: -0.3339298220383701\n",
+            "Kurtosis: -0.709750945069755\n",
+            "Q1: 44.75\n",
+            "Q3: 54.25\n",
+            "IQR: 9.5\n",
+            "Coeficiente de variación: 0.13033711237925194\n",
+            "Z-scores (10 primeros): [-1.76712329  0.15068493  0.83561644  0.69863014  0.42465753  0.97260274\n",
+            " -1.08219178  1.38356164 -0.53424658 -1.08219178]\n",
+            "Trimmed mean: 49.53703703703704\n"
           ]
         }
       ]
