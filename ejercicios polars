@@ -1,0 +1,644 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMp4xvKZHnfLn9c06IVl1pL",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/avilapaula628-coder/Tareas/blob/main/ejercicios%20polars\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "aE_O0poQDy-8",
+        "outputId": "590b13ab-b366-4afc-f4f6-9d1ecfc8bada"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Requirement already satisfied: polars in /usr/local/lib/python3.12/dist-packages (1.35.2)\n",
+            "Requirement already satisfied: polars-runtime-32==1.35.2 in /usr/local/lib/python3.12/dist-packages (from polars) (1.35.2)\n"
+          ]
+        }
+      ],
+      "source": [
+        "# Instalación del paquete\n",
+        "!pip install polars\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Importación de la Librería\n",
+        "import polars as pl"
+      ],
+      "metadata": {
+        "id": "fuVdhrkmEugZ"
+      },
+      "execution_count": 2,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Ejercicio 1\n",
+        "import polars as pl\n",
+        "\n",
+        "# Crear DataFrame\n",
+        "df = pl.DataFrame({\n",
+        "    \"name\": [\"Anna\", \"Bob\", \"Charlie\"],\n",
+        "    \"age\": [25, 30, 35]\n",
+        "})\n",
+        "\n",
+        "# Mostrar DataFrame\n",
+        "print(df)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "3IrQ4jCEE4gQ",
+        "outputId": "29054db6-ab8f-4a1b-83fa-941e8aa19198"
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "shape: (3, 2)\n",
+            "┌─────────┬─────┐\n",
+            "│ name    ┆ age │\n",
+            "│ ---     ┆ --- │\n",
+            "│ str     ┆ i64 │\n",
+            "╞═════════╪═════╡\n",
+            "│ Anna    ┆ 25  │\n",
+            "│ Bob     ┆ 30  │\n",
+            "│ Charlie ┆ 35  │\n",
+            "└─────────┴─────┘\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "1. pl.DataFrame()\n",
+        "\n",
+        "Crea un DataFrame en Polars.\n",
+        "\n",
+        "2. Diccionario\n",
+        "\n",
+        "Cada clave representa una columna:\n",
+        "\n",
+        "\"name\"\n",
+        "\"age\"\n",
+        "\n",
+        "Y cada lista contiene los datos de esa columna.\n",
+        "\n",
+        "3. print(df)\n",
+        "\n",
+        "Muestra el DataFrame."
+      ],
+      "metadata": {
+        "id": "KE2kQmWaFKGT"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Ejercicio 2\n",
+        "# Seleccionar columna name\n",
+        "names = df.select(pl.col(\"name\"))\n",
+        "\n",
+        "print(names)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "dbNOE3n_F2xA",
+        "outputId": "5a83b047-a6f7-457f-a901-5a1d480d03d7"
+      },
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "shape: (3, 1)\n",
+            "┌─────────┐\n",
+            "│ name    │\n",
+            "│ ---     │\n",
+            "│ str     │\n",
+            "╞═════════╡\n",
+            "│ Anna    │\n",
+            "│ Bob     │\n",
+            "│ Charlie │\n",
+            "└─────────┘\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Explicación\n",
+        "\n",
+        "select():\n",
+        "Permite escoger columnas.\n",
+        "\n",
+        "pl.col(\"name\"): Es una expresión de Polars que indica:\n",
+        "“selecciona la columna llamada name”."
+      ],
+      "metadata": {
+        "id": "Ro8KoXEQGQdl"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Ejercicio 3:\n",
+        "# Filtrar edades mayores a 28\n",
+        "filtered_df = df.filter(pl.col(\"age\") > 28)\n",
+        "\n",
+        "print(filtered_df)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "_6sTIMFUG56E",
+        "outputId": "35cf8b16-c7fd-4f63-fd39-04f5c0d02c2b"
+      },
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "shape: (2, 2)\n",
+            "┌─────────┬─────┐\n",
+            "│ name    ┆ age │\n",
+            "│ ---     ┆ --- │\n",
+            "│ str     ┆ i64 │\n",
+            "╞═════════╪═════╡\n",
+            "│ Bob     ┆ 30  │\n",
+            "│ Charlie ┆ 35  │\n",
+            "└─────────┴─────┘\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Explicación\n",
+        "filter(): Sirve para filtrar filas.\n",
+        "\n",
+        "pl.col(\"age\") > 28: Busca filas donde la edad sea mayor que 28."
+      ],
+      "metadata": {
+        "id": "Ck_aDk2GHU-G"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Ejercicio 4\n",
+        "# Agregar nueva columna\n",
+        "df_new = df.with_columns(\n",
+        "    (pl.col(\"age\") + 1).alias(\"age_next_year\")\n",
+        ")\n",
+        "\n",
+        "print(df_new)"
+      ],
+      "metadata": {
+        "id": "fM2iB7lNHiDk"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "with_columns():Agrega o modifica columnas.\n",
+        "\n",
+        "pl.col(\"age\") + 1:Suma 1 a cada edad.:\n",
+        "\n",
+        ".alias(\"age_next_year\"): Asigna el nombre de la nueva columna."
+      ],
+      "metadata": {
+        "id": "YEzGK7H3Hvbu"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Ejercicio 5\n",
+        "# Promedio\n",
+        "mean_age = df.select(pl.col(\"age\").mean())\n",
+        "\n",
+        "# Máximo\n",
+        "max_age = df.select(pl.col(\"age\").max())\n",
+        "\n",
+        "print(\"Mean age:\")\n",
+        "print(mean_age)\n",
+        "\n",
+        "print(\"\\nMax age:\")\n",
+        "print(max_age)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "bnZTPBDbINJz",
+        "outputId": "e0c13b4f-ba9b-4004-a2f2-8ac08be67d46"
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Mean age:\n",
+            "shape: (1, 1)\n",
+            "┌──────┐\n",
+            "│ age  │\n",
+            "│ ---  │\n",
+            "│ f64  │\n",
+            "╞══════╡\n",
+            "│ 30.0 │\n",
+            "└──────┘\n",
+            "\n",
+            "Max age:\n",
+            "shape: (1, 1)\n",
+            "┌─────┐\n",
+            "│ age │\n",
+            "│ --- │\n",
+            "│ i64 │\n",
+            "╞═════╡\n",
+            "│ 35  │\n",
+            "└─────┘\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "v.mean(): Calcula el promedio.\n",
+        "\n",
+        ".max(): Obtiene el valor máximo..mean()\n"
+      ],
+      "metadata": {
+        "id": "AoM2FnGVI4ox"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Ejercicio 6\n",
+        "# Orden descendente\n",
+        "sorted_df = df.sort(\"age\", descending=True)\n",
+        "\n",
+        "print(sorted_df)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "J-GmLcyZJYwr",
+        "outputId": "f094c611-7a60-471d-b33a-5f3ba0ce48e1"
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "shape: (3, 2)\n",
+            "┌─────────┬─────┐\n",
+            "│ name    ┆ age │\n",
+            "│ ---     ┆ --- │\n",
+            "│ str     ┆ i64 │\n",
+            "╞═════════╪═════╡\n",
+            "│ Charlie ┆ 35  │\n",
+            "│ Bob     ┆ 30  │\n",
+            "│ Anna    ┆ 25  │\n",
+            "└─────────┴─────┘\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Explicación\n",
+        "\n",
+        "sort():Ordena el DataFrame.\n",
+        "\n",
+        "descending=True: Indica orden de mayor a menor."
+      ],
+      "metadata": {
+        "id": "tRZcXP0tJh6V"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Ejercicio 7\n",
+        "# Primer DataFrame\n",
+        "df1 = pl.DataFrame({\n",
+        "    \"name\": [\"Anna\", \"Bob\"],\n",
+        "    \"age\": [25, 30]\n",
+        "})\n",
+        "\n",
+        "# Segundo DataFrame\n",
+        "df2 = pl.DataFrame({\n",
+        "    \"name\": [\"Anna\", \"Bob\"],\n",
+        "    \"city\": [\"Paris\", \"London\"]\n",
+        "})\n",
+        "\n",
+        "# Inner join\n",
+        "joined_df = df1.join(df2, on=\"name\", how=\"inner\")\n",
+        "\n",
+        "print(joined_df)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "rPJ1aifjJ2pS",
+        "outputId": "1a077545-cd14-4089-d9d4-9884d3b7a59c"
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "shape: (2, 3)\n",
+            "┌──────┬─────┬────────┐\n",
+            "│ name ┆ age ┆ city   │\n",
+            "│ ---  ┆ --- ┆ ---    │\n",
+            "│ str  ┆ i64 ┆ str    │\n",
+            "╞══════╪═════╪════════╡\n",
+            "│ Anna ┆ 25  ┆ Paris  │\n",
+            "│ Bob  ┆ 30  ┆ London │\n",
+            "└──────┴─────┴────────┘\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Explicación\n",
+        "\n",
+        "join(): Combina DataFrames.\n",
+        "\n",
+        "on=\"name\": La unión se hace usando la columna name.\n",
+        "\n",
+        "how=\"inner\": Mantiene únicamente coincidencias."
+      ],
+      "metadata": {
+        "id": "HHLqGv1bLQWE"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Ejercicio 8\n",
+        "# Crear DataFrame\n",
+        "df_salary = pl.DataFrame({\n",
+        "    \"department\": [\"HR\", \"IT\", \"IT\", \"HR\"],\n",
+        "    \"salary\": [5000, 7000, 8000, 6000]\n",
+        "})\n",
+        "\n",
+        "# Agrupar y calcular promedio\n",
+        "grouped_df = df_salary.group_by(\"department\").agg(\n",
+        "    pl.col(\"salary\").mean().alias(\"average_salary\")\n",
+        ")\n",
+        "\n",
+        "print(grouped_df)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "koxJR6DLMDVX",
+        "outputId": "0f867319-9a12-457c-e13e-334c7cdabe53"
+      },
+      "execution_count": 10,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "shape: (2, 2)\n",
+            "┌────────────┬────────────────┐\n",
+            "│ department ┆ average_salary │\n",
+            "│ ---        ┆ ---            │\n",
+            "│ str        ┆ f64            │\n",
+            "╞════════════╪════════════════╡\n",
+            "│ HR         ┆ 5500.0         │\n",
+            "│ IT         ┆ 7500.0         │\n",
+            "└────────────┴────────────────┘\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Explicación:\n",
+        "\n",
+        "group_by(): Agrupa filas por departamento:\n",
+        "\n",
+        "agg(). Realiza agregaciones.\n",
+        "\n",
+        ".mean(): Calcula promedio del salario."
+      ],
+      "metadata": {
+        "id": "dFzcU1dPMNFJ"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Ejercicio 9\n",
+        "import polars as pl\n",
+        "import pandas as pd\n",
+        "\n",
+        "# Lista de listas\n",
+        "rows = [\n",
+        "    [1, \"x\"],\n",
+        "    [2, \"y\"]\n",
+        "]\n",
+        "\n",
+        "# Crear DataFrame Polars\n",
+        "df_rows = pl.DataFrame(\n",
+        "    rows,\n",
+        "    schema=[\"id\", \"label\"],\n",
+        "    orient=\"row\"\n",
+        ")\n",
+        "\n",
+        "print(\"Polars DataFrame:\")\n",
+        "print(df_rows)\n",
+        "\n",
+        "# Convertir a Pandas\n",
+        "pandas_df = df_rows.to_pandas()\n",
+        "\n",
+        "print(\"\\nPandas DataFrame:\")\n",
+        "print(pandas_df)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "JgK_oUe8MzH9",
+        "outputId": "7a09a0d8-afaf-4625-f625-9103888ec5fa"
+      },
+      "execution_count": 13,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Polars DataFrame:\n",
+            "shape: (2, 2)\n",
+            "┌─────┬───────┐\n",
+            "│ id  ┆ label │\n",
+            "│ --- ┆ ---   │\n",
+            "│ i64 ┆ str   │\n",
+            "╞═════╪═══════╡\n",
+            "│ 1   ┆ x     │\n",
+            "│ 2   ┆ y     │\n",
+            "└─────┴───────┘\n",
+            "\n",
+            "Pandas DataFrame:\n",
+            "   id label\n",
+            "0   1     x\n",
+            "1   2     y\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Explicación\n",
+        "\n",
+        "schema: Define nombres de columnas.\n",
+        "\n",
+        ".to_pandas(): Convierte el DataFrame de Polars a Pandas."
+      ],
+      "metadata": {
+        "id": "hz6xOkxdNCnk"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Ejercicio 10\n",
+        "# Crear categoría\n",
+        "df_category = df.with_columns(\n",
+        "    pl.when(pl.col(\"age\") < 30)\n",
+        "    .then(pl.lit(\"Young\"))\n",
+        "    .otherwise(pl.lit(\"Senior\"))\n",
+        "    .alias(\"category\")\n",
+        ")\n",
+        "\n",
+        "print(df_category)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "MWIOiwTTOGIi",
+        "outputId": "eaaaefd9-f9a3-4040-84ec-83b98a0e46d5"
+      },
+      "execution_count": 15,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "shape: (3, 3)\n",
+            "┌─────────┬─────┬──────────┐\n",
+            "│ name    ┆ age ┆ category │\n",
+            "│ ---     ┆ --- ┆ ---      │\n",
+            "│ str     ┆ i64 ┆ str      │\n",
+            "╞═════════╪═════╪══════════╡\n",
+            "│ Anna    ┆ 25  ┆ Young    │\n",
+            "│ Bob     ┆ 30  ┆ Senior   │\n",
+            "│ Charlie ┆ 35  ┆ Senior   │\n",
+            "└─────────┴─────┴──────────┘\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Explicación\n",
+        "\n",
+        "1. pl.when(pl.col(\"age\") < 30)\n",
+        "\n",
+        "Evalúa la condición:\n",
+        "\n",
+        "age < 30\n",
+        "\n",
+        "2. .then(pl.lit(\"Young\")):\n",
+        "\n",
+        "pl.lit() significa:\n",
+        "\n",
+        "“esto es un valor literal”\n",
+        "\n",
+        "Entonces:\n",
+        "\n",
+        "pl.lit(\"Young\")\n",
+        "\n",
+        "le dice a Polars que \"Young\" es texto y no una columna.\n",
+        "\n",
+        "3. .otherwise(pl.lit(\"Senior\"))\n",
+        "\n",
+        "Si la condición no se cumple:\n",
+        "\n",
+        "\"Senior\"\n",
+        "4. .alias(\"category\")\n",
+        "\n",
+        "Da nombre a la nueva columna."
+      ],
+      "metadata": {
+        "id": "1fNc3xHGOoes"
+      }
+    }
+  ]
+}
