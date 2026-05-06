@@ -28,13 +28,13 @@
     },
     {
       "cell_type": "code",
-      "execution_count": 1,
+      "execution_count": 16,
       "metadata": {
         "colab": {
           "base_uri": "https://localhost:8080/"
         },
         "id": "aE_O0poQDy-8",
-        "outputId": "590b13ab-b366-4afc-f4f6-9d1ecfc8bada"
+        "outputId": "354581c7-ba68-45fe-a1ad-1502ce990045"
       },
       "outputs": [
         {
@@ -60,7 +60,7 @@
       "metadata": {
         "id": "fuVdhrkmEugZ"
       },
-      "execution_count": 2,
+      "execution_count": 17,
       "outputs": []
     },
     {
@@ -83,9 +83,9 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "3IrQ4jCEE4gQ",
-        "outputId": "29054db6-ab8f-4a1b-83fa-941e8aa19198"
+        "outputId": "48f0dc85-f855-4f4b-9fcc-f55785822580"
       },
-      "execution_count": 3,
+      "execution_count": 18,
       "outputs": [
         {
           "output_type": "stream",
@@ -143,9 +143,9 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "dbNOE3n_F2xA",
-        "outputId": "5a83b047-a6f7-457f-a901-5a1d480d03d7"
+        "outputId": "ee1d3dc1-ad65-4a44-ee54-51b26f03d8f4"
       },
-      "execution_count": 4,
+      "execution_count": 19,
       "outputs": [
         {
           "output_type": "stream",
@@ -194,9 +194,9 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "_6sTIMFUG56E",
-        "outputId": "35cf8b16-c7fd-4f63-fd39-04f5c0d02c2b"
+        "outputId": "21e50f31-1d7e-4b08-ed30-00c86f14ff27"
       },
-      "execution_count": 5,
+      "execution_count": 20,
       "outputs": [
         {
           "output_type": "stream",
@@ -239,10 +239,31 @@
         "print(df_new)"
       ],
       "metadata": {
-        "id": "fM2iB7lNHiDk"
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "fM2iB7lNHiDk",
+        "outputId": "5babd45a-b9fd-4c47-acb4-88f2e260b169"
       },
-      "execution_count": null,
-      "outputs": []
+      "execution_count": 21,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "shape: (3, 3)\n",
+            "┌─────────┬─────┬───────────────┐\n",
+            "│ name    ┆ age ┆ age_next_year │\n",
+            "│ ---     ┆ --- ┆ ---           │\n",
+            "│ str     ┆ i64 ┆ i64           │\n",
+            "╞═════════╪═════╪═══════════════╡\n",
+            "│ Anna    ┆ 25  ┆ 26            │\n",
+            "│ Bob     ┆ 30  ┆ 31            │\n",
+            "│ Charlie ┆ 35  ┆ 36            │\n",
+            "└─────────┴─────┴───────────────┘\n"
+          ]
+        }
+      ]
     },
     {
       "cell_type": "markdown",
@@ -278,9 +299,9 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "bnZTPBDbINJz",
-        "outputId": "e0c13b4f-ba9b-4004-a2f2-8ac08be67d46"
+        "outputId": "9ccda299-2744-4b74-d1c0-33e6d56fe640"
       },
-      "execution_count": 6,
+      "execution_count": 22,
       "outputs": [
         {
           "output_type": "stream",
@@ -334,9 +355,9 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "J-GmLcyZJYwr",
-        "outputId": "f094c611-7a60-471d-b33a-5f3ba0ce48e1"
+        "outputId": "886ea75c-0a2d-40fe-903a-94816824c9b9"
       },
-      "execution_count": 7,
+      "execution_count": 23,
       "outputs": [
         {
           "output_type": "stream",
@@ -395,9 +416,9 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "rPJ1aifjJ2pS",
-        "outputId": "1a077545-cd14-4089-d9d4-9884d3b7a59c"
+        "outputId": "e3f6be30-507b-41c8-de0f-4b8709c0472f"
       },
-      "execution_count": 9,
+      "execution_count": 24,
       "outputs": [
         {
           "output_type": "stream",
@@ -453,9 +474,9 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "koxJR6DLMDVX",
-        "outputId": "0f867319-9a12-457c-e13e-334c7cdabe53"
+        "outputId": "b7c7dc32-839b-4b36-e633-410a25fbf3a6"
       },
-      "execution_count": 10,
+      "execution_count": 25,
       "outputs": [
         {
           "output_type": "stream",
@@ -523,9 +544,9 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "JgK_oUe8MzH9",
-        "outputId": "7a09a0d8-afaf-4625-f625-9103888ec5fa"
+        "outputId": "e44f5381-4610-4f8f-d249-737b8de0b6f9"
       },
-      "execution_count": 13,
+      "execution_count": 26,
       "outputs": [
         {
           "output_type": "stream",
@@ -582,9 +603,9 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "MWIOiwTTOGIi",
-        "outputId": "eaaaefd9-f9a3-4040-84ec-83b98a0e46d5"
+        "outputId": "e5521e2c-cb21-4d4c-d587-8c82988b66e9"
       },
-      "execution_count": 15,
+      "execution_count": 27,
       "outputs": [
         {
           "output_type": "stream",
